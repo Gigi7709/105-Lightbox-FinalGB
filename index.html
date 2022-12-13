@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Lightbox Gallery</title>
+    <link rel="stylesheet" href="css/gallery.css">
+    <link rel="stylesheet" href="../105-Lightbox-FinalGB/css/lightbox.css">
+    <link rel="stylesheet" href="css/styling.css">
+  </head>
+  <body>
+    <!-- Gallery/Image Code -->
+
+
+    <!-- Lightbox Code -->
+    <div id="lightboxContainer" class="display">
+      <div id="lightboxBackground" class="closer"></div>
+      <img id="lightbox" src="" alt="">
+
+      <div id="gallery">
+      <img id="pic1" class="galleryImage" src="images/unsplash01.jpg" alt="">
+      <img id="pic2" class="galleryImage" src="images/unsplash02.jpg" alt="">
+      <img id="pic3" class="galleryImage" src="images/unsplash03.jpg" alt="">
+      </div>
+
+      <span id="lightboxCloser" class="closer">×</span>
+    </div>
+
+    <!-- Lightbox JavaScript -->
+    <script type="text/javascript">
+      let lightboxContainer = document.getElementById('lightboxContainer');
+      let lightboxBackground = document.getElementById('lightboxBackground');
+      let lightbox = document.getElementById('lightbox');
+      lightbox.style.height = '400px';
+      let lightboxCloser = document.getElementById('lightboxCloser');
+
+      function openLightbox(){
+        lightboxContainer.classList.add('display');
+        lightbox.src = this.src;
+      }
+
+      //KICCC -keyword,initiator,checker,continuer,codeblock
+      let galleryImages = document.getElementsByClassName('galleryImage');
+      for (let i = 0; i <galleryImages.length; i++) {
+        let galleryImage = galleryImages[i];
+        galleryImage.onclick = openLightbox;
+      }
+
+      // let pic1 = document.getElementById('pic1');
+      // pic1.onclick = openLightbox;
+
+      // let pic2 = document.getElementById('pic2');
+      // pic2.onclick = openLightbox;
+
+      // let pic3 = document.getElementById('pic3');
+      // pic3.onclick = openLightbox;
+
+      function closeLightbox(){
+        lightboxContainer.classList.remove('display');
+        lightbox.src = '';
+      }
+
+      let closers = document.getElementByClassName('closer');
+      for (let i = 0; i < closers.length; i++) {
+        let closer = closers[i]
+      }
+
+    </script>
+  </body>
+</html>
